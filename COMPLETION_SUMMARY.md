@@ -467,3 +467,35 @@ The DWA Council + Message Bus multi-agent coordination platform is:
 **Completed:** December 23, 2025
 **Repository:** `/Users/mac/Projects/claude-code-hub`
 **Status:** Production Ready ✅
+
+---
+
+## Repository Structure Decision (December 23, 2025)
+
+### Architectural Decision: Modular Separation
+
+After completing Phase 4, the repository was restructured into three separate components:
+
+1. **Coordination Infrastructure** (this repo) - Council + Message Bus only
+2. **claude-code-agents** (optional) - 21 pre-configured agents
+3. **claude-code-skills** (optional) - 166+ methodology skills
+
+### Decision Rationale
+
+**Chosen:** Option A - Infrastructure Only
+
+**Why:**
+- ✅ **Modular updates** - Council, agents, skills update independently
+- ✅ **Size management** - Skills (20+ MB) no longer bloat core infrastructure
+- ✅ **User choice** - Users can use their own agents, community agents, or both
+- ✅ **Clean architecture** - Each repository has clear, single responsibility
+- ✅ **Agent-agnostic** - Council works with ANY agents following expertise_weights pattern
+
+**Commits:**
+- `b377f85` - Removed agents/skills from repository
+- `9564716` - Updated docs to make agent/skill repos optional
+
+**Impact:**
+- Repository renamed: "Claude Code Hub" → "Coordination Infrastructure (council + message bus)"
+- Installation requires council system + user's choice of agents
+- No prescribed agent dependencies - users maintain full control
